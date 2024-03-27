@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// BMI.java
 package tester;
 
 public class BMI {
@@ -10,6 +7,7 @@ public class BMI {
     private int yob;
     private int height;
     private int weight;
+    private double bmi;
 
     // Constructor
     public BMI(int id, String name, int yob, int height, int weight) {
@@ -18,9 +16,10 @@ public class BMI {
         this.yob = yob;
         this.height = height;
         this.weight = weight;
+        this.calculateBMI();
     }
 
-    // Getter and Setter methods for id
+    // Getter and Setter methods for id, name, yob, height, weight
     public int getId() {
         return id;
     }
@@ -29,7 +28,6 @@ public class BMI {
         this.id = id;
     }
 
-    // Getter and Setter methods for name
     public String getName() {
         return name;
     }
@@ -38,7 +36,6 @@ public class BMI {
         this.name = name;
     }
 
-    // Getter and Setter methods for yob
     public int getYob() {
         return yob;
     }
@@ -47,7 +44,6 @@ public class BMI {
         this.yob = yob;
     }
 
-    // Getter and Setter methods for height
     public int getHeight() {
         return height;
     }
@@ -56,7 +52,6 @@ public class BMI {
         this.height = height;
     }
 
-    // Getter and Setter methods for weight
     public int getWeight() {
         return weight;
     }
@@ -65,23 +60,42 @@ public class BMI {
         this.weight = weight;
     }
 
-    // Constructor for BMI class
-    public BMI() {
-        // Implement constructor logic for BMI class
+    // Calculate BMI method
+    public void calculateBMI() {
+        // Calculate BMI using the formula: weight (kg) / (height (m) * height (m))
+        double heightInMeters = height / 100.0; // Convert height to meters
+        bmi = weight / (heightInMeters * heightInMeters);
     }
 
-    // Calculate method for BMI class
-    public void calculate() {
-        // Implement logic to calculate BMI
+    // Method to assess BMI category
+    public String assessBMI() {
+        if (bmi < 16) {
+            return "Severe undernourishment";
+        } else if (bmi >= 16 && bmi < 17) {
+            return "Medium undernourishment";
+        } else if (bmi >= 17 && bmi < 18.5) {
+            return "Slight undernourishment";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            return "Normal nutrition state";
+        } else if (bmi >= 25 && bmi < 30) {
+            return "Overweight";
+        } else if (bmi >= 30 && bmi < 40) {
+            return "Obesity";
+        } else {
+            return "Pathological obesity";
+        }
     }
 
-    // Display method for BMI class
+    // Display method
     public void display() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Year of Birth: " + yob);
-        System.out.println("Height: " + height);
-        System.out.println("Weight: " + weight);
+        System.out.println("Age: " + (2023-yob));
+        System.out.println("Height: " + height + " cm");
+        System.out.println("Weight: " + weight + " kg");
+        System.out.println("BMI: " + bmi);
+        System.out.println("BMI Category: " + assessBMI());
+        System.out.println("--------------------");
     }
 }
-
