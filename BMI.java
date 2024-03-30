@@ -91,7 +91,6 @@ public class BMI {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Year of Birth: " + yob);
-        System.out.println("Age: " + (2023-yob));
         System.out.println("Height: " + height + " cm");
         System.out.println("Weight: " + weight + " kg");
         System.out.println("BMI: " + bmi);
